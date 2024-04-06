@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+  <div class="row">
+    <h1>Lista de clientes</h1>
+    <div class="col-md-10">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{% url % 'clientes'}">Clientes</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Adiciona CLientes</li>
+        </ol>
+      </nav>
+    </div>
+    <div class="col-md-2">
+      <a href="{% url 'add_clientes' %}" class="btn btn-primary">Adicionar Clientes</a>  
+    </div>
+  </div>
+  <div class="container">
+
+    <table class="table table-stripped.table-hover">
+      <thead>
+        <tr>
+          <th>CNPJ</th>
+          <th>Razão Social</th>
+          <th>Contato</th>
+          <th>WhatsApp</th>
+          <th>Última Venda</th>
+        </tr>
+      </thead>
+      <tbody>
+       
+        <tr>
+          <td>{{cliente.cnpj}}</td>
+          <td>{{cliente.razao_social}}</td>
+          <td>{{cliente.name}}</td>
+          <td>{{cliente.number}}</td>
+          <td>{{cliente.date_lastsell}}</td>
+        </tr>
+        
+      </tbody>   
+    </table>
+    
+  </div>
+
+</div>
+
+{% endblock %}
