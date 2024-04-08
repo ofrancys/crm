@@ -5,7 +5,7 @@ from django.utils.timezone import now
 # Create your models here.
 
 class Cliente(models.Model):
-    cnpj = models.CharField(max_length=18)
+    cnpj = models.CharField(max_length=96)
     razao_social = models.CharField(max_length=96)
     name = models.CharField(max_length=96)
     number = models.CharField(max_length=96)

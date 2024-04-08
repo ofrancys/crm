@@ -83,7 +83,7 @@ DATABASES = {
         #'USER': os.environ.get('DB_USER'),
         #'HOST': os.environ.get('DB_HOST'),
         #'PASSWORD': os.environ.get('DB_USER_PASSWORD') 
-        'NAME': 'postgres',
+        'NAME': 'crm',
         'USER': 'postgres',
         'HOST': 'localhost',
         'PASSWORD':'postgres',

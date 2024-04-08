@@ -2,19 +2,23 @@
 
 {% block content %}
 
-<h1  class="container mt-4">Adiciona clientes </h1>
-
 <div class="container mt-4">
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="">Clientes</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Meus Clientes</li>
-    </ol>
-  </nav>
-  
+<div class="row">
+  <div class="col-md-10">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="">Clientes</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Editar cliente</li>
+      </ol>
+    </nav>
+  </div>
+  <div class="col-md-2">
+    <a href="{% url 'delete_clientes' cliente.id %}" class="btn btn-danger btn-sm">Deletar</a>
+  </div>
+</div>
     <div class="card">
       <div class=".card-body">
-        <form action="{% url 'add_clientes' %}" method="post">
+        <form action="" method="post">
          
           {% csrf_token %} 
           <div class="form-group">
@@ -37,7 +41,7 @@
             <label for="">Última venda</label>
             <input type="date" class="form-control form-control-sm" name="date_lastsell" value="{{values.date_lastsell}}">
           </div>
-          <input type="submit" value="Submit" class="btn btn-primary btn-primary-sm">
+          <input type="submit" value="Salvar" class="btn btn-primary btn-primary-sm">
         </form>
       </div>
     </div>
