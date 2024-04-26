@@ -4,15 +4,25 @@ from django.contrib import messages
 # Create your views here.
 
 def index(request):
+    #dashboard=Dash.objects.all()
+    
+    return render(request,'index.html')
+    #return render(request, 'clientes/index.html', context)
+
+def clientes(request):
     clientes=Cliente.objects.all()
-    pedidos=Pedido.objects.all()
     context = {
         'clientes' : clientes,
-        #'pedidos' : pedidos
+        
     }
-
-    #return render(request, 'pedidos/index.html', context)
     return render(request, 'clientes/index.html', context)
+
+def pedidos(request):
+    pedidos=Pedido.objects.all()
+    context = {
+        'pedidos' : pedidos
+    }
+    return render(request, 'pedidos/index.html', context)
 
 #abaixo CRUD   
 #create   
