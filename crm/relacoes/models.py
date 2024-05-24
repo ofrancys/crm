@@ -19,4 +19,18 @@ class Pedido(models.Model):
     valor_frete = models.FloatField(max_length=96)
     valor_itens = models.FloatField(max_length=96)
    
+class Produto(models.Model):
+    cod = models.CharField(max_length=18)
+    descricao = models.CharField(max_length=96)
+    medida = models.CharField(max_length=96)#fazer lista de opcoes
+    quantidade = models.FloatField(max_length=18)
+    vlr_un = models.FloatField(max_length=96)
+    vlr_total = models.FloatField(max_length=96)
 
+class Representada(models.Model):
+    cnpj = models.CharField(max_length=18)
+    razao = models.CharField(max_length=96)
+    contato = models.CharField(max_length=96)
+    numero = models.FloatField(max_length=18)
+    endereco = models.CharField(max_length=96)
+   

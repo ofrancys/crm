@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+  <div class="row">
+    <h1>Lista de Produtos</h1>
+    <div class="col-md-10">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{% url % 'produtos'}">Produtos</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Adiciona Produtos</li>
+        </ol>
+      </nav>
+    </div>
+    <div class="col-md-2">
+      <a href="{% url 'add_produtos' %}" class="btn btn-primary">Adicionar Produtos</a>  
+    </div>
+  </div>
+  <div class="container">
+    {% if produtos.count %}
+    <table class="table table-stripped.table-hover">
+      <thead>
+        <tr>
+          <th>Cód</th>
+          <th>Descrição</th>
+          <th>Medida</th>
+          <th>Quantidade</th>
+          <th>Valor Unitário</th>
+          <th>Valor Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for produto in produtos %}
+        <tr>
+          <td>{{produto.cod}}</td>
+          <td>{{produto.descricao}}</td>
+          <td>{{produto.medida}}</td>
+          <td>{{produto.quantidade}}</td>
+          <td>R${{produto.vlr_un}}</td>
+          <td>R${{produto.vlr_total}}</td>
+          <td><a href="" class="btn btn-secondary btn-sm">Editar</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>   
+    </table>
+    {% endif %}
+  </div>
+
+</div>
+
+{% endblock %}
