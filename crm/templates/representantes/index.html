@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+  <div class="row">
+    <h1>Lista de Representantes</h1>
+    <div class="col-md-10">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{% url % 'representantes'}">Representantes</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Adiciona Representante</li>
+        </ol>
+      </nav>
+    </div>
+    <div class="col-md-2">
+      <a href="{% url 'add_representantes' %}" class="btn btn-primary btn-sm">Adicionar Representantes</a>  
+    </div>
+  </div>
+  <div class="container">
+    {% if representantes.count %}
+    <table class="table table-stripped.table-hover">
+      <thead>
+        <tr>
+          <th>CNPJ</th>
+          <th>CPF</th>
+          <th>Nome Completo</th>
+          <th>Número Telefone</th>
+          <th>Endereço</th>
+          <th>N° Vendas</th>
+          <th>Ticket Médio</th>
+          <th>Valor Total Vendas</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for representante in representantes %}
+        <tr>
+          <td>{{representante.cnpj}}</td>
+          <td>{{representante.cpf}}</td>
+          <td>{{representante.fullName}}</td>
+          <td>{{representante.numero}}</td>
+          <td>{{representante.endereco}}</td>
+          <td>{{representante.vendas}}</td>
+          <td>R${{representante.ticket}}</td>
+          <td>R${{representante.totalVendas}}</td>
+          <td><a href="" class="btn btn-secondary btn-sm">Editar</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>   
+    </table>
+    {% endif %}
+  </div>
+
+</div>
+
+{% endblock %}

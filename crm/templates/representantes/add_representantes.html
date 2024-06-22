@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1  class="container mt-4">Adiciona representantes </h1>
+
+<div class="container mt-4">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="">Representantes</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Meus representadas</li>
+    </ol>
+  </nav>
+  
+    <div class="card">
+      <div class=".card-body">
+        <form action="{% url 'add_representantes' %}" method="post">
+         
+          {% csrf_token %} 
+          <div class="form-group">
+            <label for="">CNPJ</label>
+            <input type="text" class="form-control form-control-sm" name="cnpj" value="{{values.cnpj}}">
+          </div>
+          <div class="form-group">
+            <label for="">CPF</label>
+            <input type="number" class="form-control form-control-sm" name="cpf" value="{{values.cpf}}">
+          </div>
+          <div class="form-group">
+            <label for="">Nome Completo</label>
+            <input type="text" class="form-control form-control-sm" name="fullName" value="{{values.fullName}}">
+          </div>
+          <div class="form-group">
+            <label for="">Número</label>
+            <input type="number" class="form-control form-control-sm" name="numero" value="{{values.numero}}">
+          </div>
+          <div class="form-group">
+            <label for="">Endereço</label>
+            <input type="text" class="form-control form-control-sm" name="endereco" value="{{values.endereco}}">
+          </div>
+          <div class="form-group">
+            <label for="">Vendas</label>
+            <input type="number" class="form-control form-control-sm" name="vendas" value="{{values.vendas}}">
+          </div>
+          <div class="form-group">
+            <label for="">Ticket Médio</label>
+            <input type="number" class="form-control form-control-sm" name="ticket" value="{{values.ticket}}">
+          </div>
+          <div class="form-group">
+            <label for="">Valor total de vendas</label>
+            <input type="number" class="form-control form-control-sm" name="totalVendas" value="{{values.totalVendas}}">
+          </div>
+          <input type="submit" value="Adicionar" class="btn btn-primary btn-primary-sm">
+        </form>
+      </div>
+    </div>
+
+</div>
+
+
+{% endblock %}
+

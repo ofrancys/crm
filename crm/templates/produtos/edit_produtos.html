@@ -2,19 +2,20 @@
 
 {% block content %}
 
-<h1  class="container mt-4">Adiciona produtos </h1>
-
 <div class="container mt-4">
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="">Produtos</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Meus Produtos</li>
-    </ol>
-  </nav>
-  
+<div class="row">
+  <div class="col-md-10">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="">Produtos</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Editar pedido</li>
+      </ol>
+    </nav>
+  </div>
+</div>
     <div class="card">
       <div class=".card-body">
-        <form action="{% url 'add_produtos' %}" method="post">
+        <form action="" method="post">
          
           {% csrf_token %} 
           <div class="form-group">
@@ -41,7 +42,7 @@
             <label for="">Valor total</label>
             <input type="number" class="form-control form-control-sm" name="vlr_total" value="{{values.vlr_total}}">
           </div>
-          <input type="submit" value="Adicionar" class="btn btn-primary btn-primary-sm">
+          <input type="submit" value="Salvar" class="btn btn-primary btn-primary-sm">
         </form>
       </div>
     </div>

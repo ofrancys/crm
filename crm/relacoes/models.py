@@ -2,17 +2,12 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils.timezone import now 
 
-# Create your models here.
-
 class Cliente(models.Model):
     cnpj = models.CharField(max_length=96)
     razao_social = models.CharField(max_length=96)
     name = models.CharField(max_length=96)
     number = models.CharField(max_length=96)
     date_lastsell = models.DateField(default=now)
-    #sell = models.BooleanField()
-    #class Meta:
-        #ordering: ['-date']
 
 class Pedido(models.Model):
     representada = models.CharField(max_length=18)
@@ -22,7 +17,7 @@ class Pedido(models.Model):
 class Produto(models.Model):
     cod = models.CharField(max_length=18)
     descricao = models.CharField(max_length=96)
-    medida = models.CharField(max_length=96)#fazer lista de opcoes
+    medida = models.CharField(max_length=96)
     quantidade = models.FloatField(max_length=18)
     vlr_un = models.FloatField(max_length=96)
     vlr_total = models.FloatField(max_length=96)
@@ -33,4 +28,14 @@ class Representada(models.Model):
     contato = models.CharField(max_length=96)
     numero = models.FloatField(max_length=18)
     endereco = models.CharField(max_length=96)
+
+class Representante(models.Model):
+    cnpj = models.BigIntegerField()
+    cpf = models.BigIntegerField()
+    fullName = models.CharField(max_length=96)
+    numero = models.IntegerField()
+    endereco = models.CharField(max_length=96)
+    vendas = models.FloatField(max_length=18)
+    ticket = models.FloatField(max_length=96)
+    totalVendas = models.FloatField(max_length=18)
    

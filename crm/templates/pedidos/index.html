@@ -12,7 +12,7 @@
         </nav>
       </div>
       <div class="col-md-2">
-        <a href="{% url 'add_pedidos' %}" class="btn btn-primary">Adicionar pedidos</a>  
+        <a href="{% url 'add_pedidos' %}" class="btn btn-primary btn-sm">Adicionar pedidos</a>  
       </div>
     </div>
     <div class="container">
@@ -29,8 +29,10 @@
           {% for pedido in pedidos %}
           <tr>
             <td>{{pedido.representada}}</td>
-            <td>{{pedido.valor_frete}}</td>
-            <td>{{pedido.valor_itens}}</td>
+            <td>R${{pedido.valor_frete}}</td>
+            <td>R${{pedido.valor_itens}}</td>
+            <td><a href="{% url 'edit_pedidos' pedido.id %}" class="btn btn-secondary btn-sm">Editar</a></td>
+            <td><a href="{% url 'delete_pedidos' pedido.id %}" class="btn btn-danger btn-sm">Deletar</a></td>
           </tr>
           {% endfor %}
         </tbody>   

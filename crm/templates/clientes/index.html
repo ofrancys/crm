@@ -13,7 +13,7 @@
       </nav>
     </div>
     <div class="col-md-2">
-      <a href="{% url 'add_clientes' %}" class="btn btn-primary">Adicionar Clientes</a>  
+      <a href="{% url 'add_clientes' %}" class="btn btn-primary btn-sm">Adicionar Clientes</a>  
     </div>
   </div>
   <div class="container">
@@ -37,6 +37,7 @@
           <td>{{cliente.number}}</td>
           <td>{{cliente.date_lastsell}}</td>
           <td><a href="{% url 'edit_clientes' cliente.id %}" class="btn btn-secondary btn-sm">Editar</a></td>
+          <td><a href="{% url 'delete_clientes' cliente.id %}" class="btn btn-danger btn-sm">Deletar</a></td>
         </tr>
         {% endfor %}
       </tbody>   
